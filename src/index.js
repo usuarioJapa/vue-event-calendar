@@ -7,8 +7,8 @@ function install (Vue, options = {}) {
   const inBrowser = typeof window !== 'undefined'
   let dateObj = new Date()
   const DEFAULT_OPTION = {
-    locale: 'zh', // en
-    color: ' #f29543',
+    locale: 'en', // en
+    color: ' #ff4455',
     className:'selected-day',
     weekStartOn: 0 // 0 mean sunday
   }
