@@ -1,13 +1,10 @@
 # vue-event-calendar
 
-> A simple events calendar for Vue2, no dependencies except Vue2. responsive & mobile first.
-> [Live Demo Here](http://geoffzhu.cn/vue-event-calendar/)
+> A fork of http://geoffzhu.cn/vue-event-calendar/
 
-![](http://o80ronwlu.bkt.clouddn.com/vue-event-calendar.gif)
+
 
 [![npm version](https://img.shields.io/npm/v/vue-event-calendar.svg)](https://www.npmjs.com/package/vue-event-calendar)
-
-[中文文档](https://github.com/GeoffZhu/vue-event-calendar/blob/master/README.zh.md)
 
 ## Requirements
 - vue: ^2.0.0
