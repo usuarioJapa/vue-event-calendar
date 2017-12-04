@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper" :class="{lab : event.type === 'lab', other : event.type === 'other', conversation : event.type === 'conversation'}">
+<div class="wrapper" :class="{lab : event.customClass === 'lab', other : event.customClass === 'other', conversation : event.customClass === 'conversation'}">
   <div class="time">
     <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p>
   </div>
@@ -60,6 +60,7 @@
     }
     .desc {}
 }
+
 </style>
 
 <script>

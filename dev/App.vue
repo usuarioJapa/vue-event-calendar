@@ -27,19 +27,22 @@ export default {
         date: `2017/12/10`,
         title: 'Aulas de conversaçōes',
         desc: 'Today',
-        type: 'conversation'
+        type: 'conversation',
+        customClass: 'conversation'
       },
         {
         date: `2017/12/20`,
         title: 'Aulas de Lab Class',
         desc: 'Ho ho ho',
-        type: 'lab'
+        type: 'lab',
+        customClass: 'lab'
       },
         {
         date: `2017/12/22`,
         title: 'Aulas de Lab Class',
         desc: 'Ho ho ho',
-        type: 'other'
+        type: 'other',
+        customClass: 'other'
       }
     ]
     }

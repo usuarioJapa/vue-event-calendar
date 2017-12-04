@@ -184,16 +184,44 @@ export default {
             margin-top: 20px;
             margin-bottom: 10px;
 
-            .title {}
-            .l {
-                cursor: pointer;
-                user-select: none;
-                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            .title {
+                background: #ddd;
+                width: 95%;
+                margin: 0 auto;
+                padding: 10px 0;
+                text-align: center;
+                border-radius: 20px;
             }
+            .l,
             .r {
                 cursor: pointer;
                 user-select: none;
                 -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+                background: #FF9C00;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                margin-left: 10px;
+                margin-right: 10px;
+                transition: 0.3s;
+                &:hover {
+                    background: #D48202;
+                }
+            }
+            .l {
+                position: absolute;
+                left: 10px;
+                top: 6px;
+            }
+            .r {
+                position: absolute;
+                right: 10px;
+                top: 6px;
             }
         }
         .cal-body {
@@ -206,8 +234,8 @@ export default {
                 align-items: center;
                 justify-content: space-around;
                 .item {
-                  background: #FFA200!important;
-                  background: linear-gradient(-206deg, #FFA200 0%, #FFAC00 100%)!important;
+                    background: #FFA200!important;
+                    background: linear-gradient(-206deg, #FFA200 0%, #FFAC00 100%)!important;
                     color: #fff;
                     font-size: 12px;
                     font-weight: 700;
@@ -259,20 +287,7 @@ export default {
                         margin-left: -15px;
                         margin-top: -15px;
                     }
-                    .is-today {
-                        content: '';
-                        background-color: @base-orange;
-                        border-radius: 50%;
-                        opacity: 0.8;
-                        width: 12px;
-                        height: 4px;
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        z-index: 2;
-                        margin-left: -6px;
-                        margin-top: 8px;
-                    }
+
                 }
             }
         }
@@ -285,10 +300,10 @@ export default {
         padding: 20px;
         box-sizing: border-box;
         .cal-events {
-            height: 95%;
             overflow-y: auto;
-            padding: 0 5px;
-            margin: 15px 0;
+            margin: 0;
+            min-height: 260px;
+            overflow-y: auto;
         }
         .date {
             text-align: center;
@@ -343,4 +358,70 @@ export default {
         padding: 0;
     }
 }
+
+.lab {
+    .is-event {
+
+        background: #00B4BA!important;
+        background: linear-gradient(-206deg, #00B4BA 0%, #00418A 100%)!important;
+        border: none!important;
+    }
+    .date-num {
+        color: #fff!important;
+
+    }
+}
+.conversation {
+    .is-event {
+
+        background: #4E6BFD!important;
+        background: linear-gradient(-206deg, #4E6BFD 0%, #9A0EEC 100%)!important;
+        border: none!important;
+    }
+    .date-num {
+        color: #fff!important;
+
+    }
+}
+.other {
+    .is-event {
+
+        background: #21A6A6!important;
+        background: linear-gradient(-206deg, #21A6A6 0%, #A2F095 100%)!important;
+        border: none!important;
+    }
+    .date-num {
+        color: #fff!important;
+
+    }
+}
+
+.is-today {
+    content: '';
+    border: 1px solid #FF9C00!important;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin-left: -15px;
+    margin-top: -15px;
+}
+
+// .date-num::before {
+//     content: '';
+//     border: 1px solid #ddd!important;
+//     border-radius: 50%;
+//     width: 30px;
+//     height: 30px;
+//     position: absolute;
+//     left: 50%;
+//     top: 50%;
+//     z-index: 1;
+//     margin-left: -15px;
+//     margin-top: -15px;
+// }
 </style>

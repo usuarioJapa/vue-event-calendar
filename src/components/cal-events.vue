@@ -1,9 +1,10 @@
 <template>
   <div class="events-wrapper">
-    <h2 class="date">
+    <!-- <h2 class="date">
       {{dayEventsTitle}}
-    </h2>
+    </h2> -->
     <div class="cal-events">
+      <!-- <span @click="allEvents">all events</span> -->
       <slot>
         <div v-for="(event, index) in events" class="event-item">
           <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
@@ -66,7 +67,13 @@ export default {
     }
   },
   methods: {
-    dateTimeFormatter
+    dateTimeFormatter,
+
+    allEvents: function () {
+      console.log(this.dayEvents.date)
+      console.log(this.events)
+      this.dayEvents.date = 'all'
+    }
   }
 }
 </script>
