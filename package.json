@@ -1,8 +1,9 @@
 {
   "name": "vue-event-calendar-minds",
   "description": "Forked repository",
-  "version": "1.5.1",
+  "version": "1.5.3",
   "author": "geoffzhu <geoffzhu1992@gmail.com>",
+  "license": "",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",

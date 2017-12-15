@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import './main.css'
 import vueEventCalendar from '../src/'
 // import vueEventCalendar from '../dist'
 // import '../dist/style.css'

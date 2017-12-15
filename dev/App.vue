@@ -55,41 +55,5 @@ export default {
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
 
-h1,
-h2,
-h3 {
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: #42b983;
-}
-
-.width-content {
-  width: 1000px;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-.cal-wrapper,
-.events-wrapper {
-  margin: 10px;
-}
 </style>

@@ -2,6 +2,8 @@ var path = require('path')
 var webpack = require('webpack')
 var ExtractTextPlugin = require("extract-text-webpack-plugin")
 
+process.noDeprecation = true
+
 module.exports = {
   entry: './dev/main.js',
   output: {
