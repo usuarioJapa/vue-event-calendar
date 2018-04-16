@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import './main.css'
+// import '../src/assets/css/main.css'
 import vueEventCalendar from '../src/'
-// import vueEventCalendar from '../dist'
-// import '../dist/style.css'
 Vue.use(vueEventCalendar, {locale: 'pt-br', weekStartOn: 1})
 
 new Vue({

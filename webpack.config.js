@@ -18,7 +18,6 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-
           }
         }
       },
@@ -28,7 +27,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
+        test: /\.css|less$/,
         loader: 'style-loader!css-loader',
         exclude: /node_modules/
       },
@@ -41,16 +40,10 @@ module.exports = {
       }
     ]
   },
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.common.js'
-    }
-  },
   devServer: {
     historyApiFallback: true,
     noInfo: true
-  },
-  devtool: '#eval-source-map'
+  }
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -62,7 +55,6 @@ if (process.env.NODE_ENV === 'production') {
     library:'VueEventCalendar',
     libraryTarget: 'umd'
   }
-  module.exports.devtool = '#source-map'
   module.exports.module.rules[0].options.loaders = {
     css: ExtractTextPlugin.extract({
       use: 'css-loader',
