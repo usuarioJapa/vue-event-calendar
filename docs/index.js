@@ -313,7 +313,7 @@ module.exports = function normalizeComponent (
 
 
 /* styles */
-__webpack_require__(11)
+__webpack_require__(10)
 
 var Component = __webpack_require__(1)(
   /* script */
@@ -382,56 +382,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -471,6 +421,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tools_js__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cal_event_item_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cal_event_item_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__cal_event_item_vue__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -602,6 +557,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -628,6 +591,11 @@ var inBrowser = typeof window !== 'undefined';
     selectedDay: {
       type: String,
       required: false
+    },
+    showHeader: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -968,17 +936,13 @@ if (( false ? 'undefined' : _typeof(module)) === 'object' && module.exports) {
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+module.exports = __webpack_require__.p + "arrow-right.svg?61602c4ce7221b74a7c2a735dd9c34e9";
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
-
-
-/* styles */
-__webpack_require__(10)
 
 var Component = __webpack_require__(1)(
   /* script */
@@ -986,7 +950,7 @@ var Component = __webpack_require__(1)(
   /* template */
   __webpack_require__(15),
   /* scopeId */
-  "data-v-1bef712c",
+  null,
   /* cssModules */
   null
 )
@@ -1042,21 +1006,21 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('div', {
     staticClass: "time"
-  }, [_c('p', [_vm._v(_vm._s(_vm.dateTimeFormatter(Date.parse(new Date(_vm.event.date)), _vm.i18n[_vm.locale].fullFormat)))])]), _vm._v(" "), _c('div', {
+  }, [_c('p', [_vm._v(_vm._s(_vm.event.time))])]), _vm._v(" "), _c('div', {
     staticClass: "title"
   }, [_vm._v("\n    " + _vm._s(_vm.event.title) + "\n  ")])])
 },staticRenderFns: []}
 
 /***/ }),
 /* 16 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "events-wrapper"
   }, [_c('div', {
     staticClass: "cal-events"
-  }, [_vm._t("default", _vm._l((_vm.events), function(event, index) {
+  }, [_vm._t("default", [_vm._l((_vm.events), function(event, index) {
     return _c('div', {
       staticClass: "event-item"
     }, [_c('cal-event-item', {
@@ -1066,8 +1030,24 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "locale": _vm.locale
       }
     })], 1)
-  }))], 2)])
-},staticRenderFns: []}
+  }), _vm._v(" "), _vm._m(0, false, false)])], 2)])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "button"
+  }, [_c('button', {
+    staticClass: "btn btn-full",
+    attrs: {
+      "type": "button",
+      "name": "button"
+    }
+  }, [_c('span', [_vm._v("MARCAR NOVA AULA PRESENCIAL")]), _vm._v(" "), _c('img', {
+    attrs: {
+      "src": __webpack_require__(11),
+      "width": "14",
+      "alt": ""
+    }
+  })])])
+}]}
 
 /***/ }),
 /* 17 */
@@ -1107,6 +1087,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "cal-wrapper"
   }, [_c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.showHeader),
+      expression: "showHeader"
+    }],
     staticClass: "cal-header"
   }, [_c('div', {
     staticClass: "l",
@@ -1122,14 +1108,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('span', [_vm._v(">")])])]), _vm._v(" "), _c('div', {
     staticClass: "cal-body"
-  }, [_c('div', {
-    staticClass: "weeks"
-  }, _vm._l((_vm.i18n[_vm.calendar.options.locale].dayNames), function(dayName, dayIndex) {
-    return _c('span', {
-      key: dayIndex,
-      staticClass: "item"
-    }, [_vm._v("\n        " + _vm._s(_vm.i18n[_vm.calendar.options.locale].dayNames[(dayIndex + _vm.calendar.options.weekStartOn) % 7]) + "\n      ")])
-  })), _vm._v(" "), _c('div', {
+  }, [_vm._m(0, false, false), _vm._v(" "), _c('div', {
     staticClass: "dates"
   }, _vm._l((_vm.dayList), function(date) {
     return _c('div', {
@@ -1143,12 +1122,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "date-num",
       style: ({
         color: date.title != undefined ? ((date.date == _vm.selectedDay) ? '#fff' : _vm.customColor) : 'inherit'
-      }),
-      on: {
-        "click": function($event) {
-          _vm.handleChangeCurday(date)
-        }
-      }
+      })
     }, [_vm._v("\n          " + _vm._s(date.status ? date.date.split('/')[2] : ' '))]), _vm._v(" "), (date.status ? (_vm.today == date.date) : false) ? _c('span', {
       staticClass: "is-today"
     }) : _vm._e(), _vm._v(" "), (date.status ? (date.title != undefined) : false) ? _c('span', {
@@ -1156,7 +1130,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }) : _vm._e()])
     var _obj;
   }))])])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "weeks"
+  }, [_c('span', {
+    staticClass: "item"
+  }, [_vm._v("S")]), _vm._v(" "), _c('span', {
+    staticClass: "item"
+  }, [_vm._v("T")]), _vm._v(" "), _c('span', {
+    staticClass: "item"
+  }, [_vm._v("Q")]), _vm._v(" "), _c('span', {
+    staticClass: "item"
+  }, [_vm._v("Q")]), _vm._v(" "), _c('span', {
+    staticClass: "item"
+  }, [_vm._v("S")]), _vm._v(" "), _c('span', {
+    staticClass: "item"
+  }, [_vm._v("S")]), _vm._v(" "), _c('span', {
+    staticClass: "item"
+  }, [_vm._v("D")])])
+}]}
 
 /***/ })
 /******/ ]);
