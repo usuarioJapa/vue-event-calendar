@@ -146,7 +146,7 @@ a {
   font-weight: 700;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,7 +187,7 @@ a {
   content: '';
   border: 1px solid #ff4455;
   background-color: #fff;
-  border-radius: 50%;
+  border-radius: 5px;
   width: 30px;
   height: 30px;
   position: absolute;
@@ -304,7 +304,7 @@ a {
   content: '';
   border: 1px solid #FF9C00!important;
   background-color: #fff;
-  border-radius: 50%;
+  border-radius: 5px;
   width: 30px;
   height: 30px;
   position: absolute;
