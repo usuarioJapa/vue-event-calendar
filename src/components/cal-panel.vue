@@ -1,7 +1,8 @@
 <template>
 <div class="cal-wrapper">
-<!-- <span @click="setToday">HOJE</span> -->
-  <div class="cal-header">
+  <!-- <span @click="setToday">HOJE</span> -->
+
+  <div class="cal-header" v-show="showHeader">
     <div class="l" @click="preMonth">
       <span>&lt;</span>
     </div>
@@ -12,32 +13,39 @@
   </div>
 
   <div class="cal-body">
+
     <div class="weeks">
-      <span v-for="(dayName, dayIndex) in i18n[calendar.options.locale].dayNames" class="item" :key="dayIndex">
+      <!-- <span v-for="(dayName, dayIndex) in i18n[calendar.options.locale].dayNames" class="item" :key="dayIndex">
         {{i18n[calendar.options.locale].dayNames[(dayIndex + calendar.options.weekStartOn) % 7]}}
-      </span>
+      </span> -->
+
+      <!-- tomara que nao bug -->
+      <span class="item">S</span>
+      <span class="item">T</span>
+      <span class="item">Q</span>
+      <span class="item">Q</span>
+      <span class="item">S</span>
+      <span class="item">S</span>
+      <span class="item">D</span>
+
     </div>
+
     <div class="dates">
       <div v-for="date in dayList" class="item" :class="[{
             today: date.status ? (today == date.date) : false,
             event: date.status ? (date.title != undefined) : false,
             [calendar.options.className] : (date.date == selectedDay)
           }, ...date.customClass]" :key="date.date">
-        <p class="date-num" @click="handleChangeCurday(date)" :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
-        <!-- <p class="date-num" :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}"> -->
+        <!-- @click="handleChangeCurday(date)" -->
+        <p class="date-num" :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
           {{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
         <span v-if="date.status ? (today == date.date) : false" class="is-today"></span>
         <span v-if="date.status ? (date.title != undefined) : false" class="is-event"></span>
       </div>
     </div>
 
-    <!-- <div v-for="date in dayList">
-      <div v-if="date.status ? (date.title != undefined) : false">
-        {{date}}
-      </div>
-    </div> -->
-
   </div>
+
 </div>
 </template>
 
@@ -66,6 +74,11 @@ export default {
     selectedDay: {
       type: String,
       required: false
+    },
+    showHeader: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -123,8 +136,8 @@ export default {
   },
   methods: {
     setToday() {
-this.$EventCalendar.currentDay()
-this.$emit('month-changed', this.curYearMonth)
+      this.$EventCalendar.currentDay()
+      this.$emit('month-changed', this.curYearMonth)
     },
     nextMonth() {
       this.$EventCalendar.nextMonth()

@@ -25,6 +25,7 @@ export default {
       demoEvents: [
         {
         date: `2018/04/10`,
+        time: '15:00',
         title: 'Aulas de conversaçōes',
         desc: 'Today',
         type: 'conversation',
@@ -32,6 +33,7 @@ export default {
       },
         {
         date: `2018/04/20`,
+        time: '15:30',
         title: 'Aulas de Lab Class',
         desc: 'Ho ho ho',
         type: 'lab',
@@ -39,6 +41,7 @@ export default {
       },
         {
         date: `2018/04/22`,
+        time: '17:00',
         title: 'Aulas de Lab Class',
         desc: 'Ho ho ho',
         type: 'other',

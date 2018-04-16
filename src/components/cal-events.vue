@@ -1,17 +1,22 @@
 <template>
-  <div class="events-wrapper">
-    <!-- <h2 class="date">
-      {{dayEventsTitle}}
-    </h2> -->
-    <div class="cal-events">
-      <!-- <span @click="allEvents">all events</span> -->
-      <slot>
-        <div v-for="(event, index) in events" class="event-item">
-          <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
-        </div>
-      </slot>
-    </div>
+<div class="events-wrapper">
+  <div class="cal-events">
+    <!--
+      show all events
+      <span @click="allEvents">all events</span>
+      -->
+    <slot>
+      <div v-for="(event, index) in events" class="event-item">
+        <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
+      </div>
+      <div class="button">
+        <button type="button" name="button" class="btn btn-full">
+          <span>MARCAR NOVA AULA PRESENCIAL</span>
+          <img src="../../src/assets/img/arrow-right.svg" width="14" alt=""></button>
+      </div>
+    </slot>
   </div>
+</div>
 </template>
 
 <script>
@@ -20,7 +25,7 @@ import { dateTimeFormatter } from '../tools.js'
 import calEventItem from './cal-event-item.vue'
 export default {
   name: 'cal-events',
-  data () {
+  data() {
     return {
       i18n
     }
@@ -44,7 +49,7 @@ export default {
     }
   },
   computed: {
-    dayEventsTitle () {
+    dayEventsTitle() {
       if (this.title) return this.title
       if (this.dayEvents.date !== 'all') {
         let tempDate
@@ -59,17 +64,17 @@ export default {
         return i18n[this.locale].dayEventsTitle
       }
     },
-    events () {
+    events() {
       return this.dayEvents.events
     },
-    bgColor () {
-      return {backgroundColor: this.color}
+    bgColor() {
+      return { backgroundColor: this.color }
     }
   },
   methods: {
     dateTimeFormatter,
 
-    allEvents: function () {
+    allEvents: function() {
       console.log(this.dayEvents.date)
       console.log(this.events)
       this.dayEvents.date = 'all'

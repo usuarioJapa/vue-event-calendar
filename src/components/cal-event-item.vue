@@ -1,20 +1,17 @@
 <template>
 <div class="wrapper" :class="{lab : event.customClass === 'lab', other : event.customClass === 'other', conversation : event.customClass === 'conversation'}">
   <div class="time">
-    <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p>
+    <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
+    <p>{{event.time}}</p>
   </div>
   <div class="title">
     {{event.title}}
   </div>
-  <!-- <div class="desc">
-      <p>{{event.desc}}</p>
-    </div> -->
 
 </div>
 </template>
 
-<style lang="less" scoped>
-</style>
+
 
 <script>
 import i18n from '../i18n.js'
