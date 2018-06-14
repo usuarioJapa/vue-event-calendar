@@ -39,6 +39,7 @@
         <!-- @click="handleChangeCurday(date)" -->
         <p class="date-num" :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
           {{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
+        <span v-if="date.status ? ((today != date.date) && (date.title != undefined)) : false" class="normal"></span>
         <span v-if="date.status ? (today == date.date) : false" class="is-today"></span>
         <span v-if="date.status ? (date.title != undefined) : false" class="is-event"></span>
       </div>
