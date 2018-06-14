@@ -11,13 +11,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gustavoquinalha/vue-event-calendar"
+    "url": "git+https://github.com/usuarioJapa/vue-event-calendar"
   },
   "main": "dist/index.js",
   "contributors": [
     {
-      "name": "Gustavo Quinalha",
-      "email": "gusquinalha@gmail.com"
+      "name": "usuarioJapa",
+      "email": "willian.hsimabukuro@gmail.com"
     }
   ],
   "dependencies": {
@@ -52,5 +52,5 @@
   "bugs": {
     "url": "https://github.com/GeoffZhu/vue-event-calendar/issues"
   },
-  "homepage": "https://github.com/gustavoquinalha/vue-event-calendar"
+  "homepage": "https://github.com/usuarioJapa/vue-event-calendar"
 }
