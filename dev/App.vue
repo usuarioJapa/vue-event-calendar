@@ -49,5 +49,4 @@ export default {
 </script>
 
 <style lang="less">
-@import '../src/assets/css/main.css';
 </style>

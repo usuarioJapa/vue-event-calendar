@@ -53,7 +53,7 @@
 <script>
 import i18n from '../i18n.js'
 import { dateTimeFormatter, isEqualDateStr } from '../tools.js'
-
+import '../assets/css/main.css'
 const inBrowser = typeof window !== 'undefined'
 export default {
   name: 'cal-panel',
