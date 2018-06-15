@@ -327,7 +327,7 @@ a {
   margin-top: -15px;
 }
 
-.normal {
+.is-normal {
   content: '';
   border: 1px solid #ccc !important;
   background-color: #fff;
