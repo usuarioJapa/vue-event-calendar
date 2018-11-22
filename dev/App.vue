@@ -15,28 +15,22 @@ export default {
       locale: 'pt-br',
       demoEvents: [
         {
-        date: `2018/04/10`,
+        date: `2018/11/10`,
         time: '15:00',
         title: 'Aulas de conversaçōes',
-        desc: 'Today',
-        type: 'conversation',
-        customClass: 'conversation'
+        desc: 'Today'
       },
         {
-        date: `2018/04/20`,
+        date: `2018/11/20`,
         time: '15:30',
         title: 'Aulas de Lab Class',
-        desc: 'Ho ho ho',
-        type: 'lab',
-        customClass: 'lab'
+        desc: 'Ho ho ho'
       },
         {
-        date: `2018/04/22`,
+        date: `2018/11/23`,
         time: '17:00',
         title: 'Aulas de Lab Class',
-        desc: 'Ho ho ho',
-        type: 'other',
-        customClass: 'other'
+        desc: 'Ho ho ho'
       }
     ]
     }

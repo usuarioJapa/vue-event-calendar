@@ -35,7 +35,7 @@
             today: date.status ? (today == date.date) : false,
             event: date.status ? (date.title != undefined) : false,
             [calendar.options.className] : (date.date == selectedDay)
-          }, ...date.customClass]" :key="date.date">
+          }, isToday(date)]" :key="date.date">
         <!-- @click="handleChangeCurday(date)" -->
         <p class="date-num" :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
           {{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
@@ -124,8 +124,8 @@ export default {
       return tempArr
     },
     today() {
-      let dateObj = new Date()
-      return `${dateObj.getFullYear()}/${dateObj.getMonth()+1}/${dateObj.getDate()}`
+      let date = new Date()
+      return `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()}`
     },
     curYearMonth() {
       let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.curMonth+1}/01`))
@@ -151,6 +151,21 @@ export default {
     handleChangeCurday(date) {
       if (date.status) {
         this.$emit('cur-day-changed', date.date)
+      }
+    },
+    isToday (data) {
+      if (!data.title) return
+      const index = this.events.findIndex(e => (e.date == data.date) && (e.title == data.title))
+      if ((data.date == this.today) && (index >= 0)) return 'conversation'
+      switch (index % 2) {
+        case 0:
+          return 'lab'
+          break;
+        case 1:
+          return 'other'
+          break;
+        default:
+          return
       }
     }
   }

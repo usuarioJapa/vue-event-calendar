@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper" :class="{lab : event.customClass === 'lab', other : event.customClass === 'other', conversation : event.customClass === 'conversation'}">
+<div class="wrapper" :class="{lab : (index % 2 === 0), other : index % 2 === 1, conversation : event.date === today}">
   <div class="time">
     <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
     <p>{{event.time}}</p>
@@ -34,6 +34,12 @@ export default {
     locale: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    today() {
+      let date = new Date()
+      return `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()}`
     }
   },
   methods: {
