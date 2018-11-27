@@ -122,7 +122,6 @@ export default {
             if (event.customClass) tempItem.customClass.push(event.customClass)
           }
         })
-        console.log(tempItem);
         tempArr.push(tempItem)
       }
       return tempArr
