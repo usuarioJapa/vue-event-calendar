@@ -18,7 +18,8 @@ export default {
         date: `2018/11/10`,
         time: '15:00',
         title: 'Aulas de conversaçōes',
-        desc: 'Today'
+        desc: 'Today',
+        classStatus: 'F'
       },
         {
         date: `2018/11/20`,

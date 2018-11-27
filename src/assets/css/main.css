@@ -195,10 +195,29 @@ a {
   background-color: #ff4455;
 }
 
+.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item.selected-day .is-finished {
+  background-color: #eee;
+}
+
 .__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item .is-event {
   content: '';
   border: 1px solid #ff4455;
   background-color: #fff;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  margin-left: -15px;
+  margin-top: -15px;
+}
+
+.__vev_calendar-wrapper .cal-wrapper .cal-body .dates .item .is-finished {
+  content: '';
+  border: 1px solid #eee;
+  background-color: #eee;
   border-radius: 5px;
   width: 30px;
   height: 30px;
@@ -312,6 +331,13 @@ a {
   color: #fff !important;
 }
 
+.is-finished {
+  background: #EEE !important;
+  background: linear-gradient(-206deg, #EEE 0%, #CCC 100%) !important;
+  color: #AAA !important;
+  border: none !important;
+}
+
 .is-today {
   content: '';
   border: 1px solid #FF9C00 !important;
@@ -365,6 +391,13 @@ a {
 .wrapper.conversation .title {
   background: #4E6BFD !important;
   background: linear-gradient(-206deg, #4E6BFD 0%, #9A0EEC 100%) !important;
+}
+
+.wrapper.finished .time,
+.wrapper.finished .title {
+  background: #EEE !important;
+  background: linear-gradient(-206deg, #EEE 0%, #CCC 100%) !important;
+  color: #AAA;
 }
 
 .wrapper .time {

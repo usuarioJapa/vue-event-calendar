@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper" :class="{lab : (index % 2 === 0), other : index % 2 === 1, conversation : event.date === today}">
+<div class="wrapper" :class="{ lab : (index % 2 === 0), other : index % 2 === 1, conversation : event.date === today, finished: event.classStatus == 'F' }">
   <div class="time">
     <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
     <p>{{event.time}}</p>

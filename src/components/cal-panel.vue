@@ -43,6 +43,7 @@
         <span v-if="((today == date.date) || (date.title == undefined))" class="is-normal"></span>
         <span v-if="date.status ? (today == date.date) : false" class="is-today"></span>
         <span v-if="date.status ? (date.title != undefined) : false" class="is-event"></span>
+        <span v-if="date.status ? (date.classStatus == 'F') : false" class="is-finished"></span>
       </div>
     </div>
 
@@ -117,9 +118,11 @@ export default {
           if (isEqualDateStr(event.date, tempItem.date)) {
             tempItem.title = event.title
             tempItem.desc = event.desc || ''
+            tempItem.classStatus = event.classStatus == 'F' ? event.classStatus : 'A'
             if (event.customClass) tempItem.customClass.push(event.customClass)
           }
         })
+        console.log(tempItem);
         tempArr.push(tempItem)
       }
       return tempArr
