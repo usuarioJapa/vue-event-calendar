@@ -3,7 +3,7 @@
     <div class="cal-events">
 
       <slot>
-        <div v-for="(event, index) in events" class="event-item">
+        <div v-for="(event, index) in activeEvents" class="event-item">
           <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
         </div>
         <div class="button">
@@ -75,6 +75,9 @@
           return {
             backgroundColor: this.color
           }
+        },
+        activeEvents () {
+          return this.events.filter(e => e.classStatus != 'F')
         }
     },
     methods: {
