@@ -31,19 +31,30 @@
     </div>
 
     <div class="dates">
-      <div v-for="date in dayList" class="item" :class="[{
+      <!-- <div v-for="date in dayList" class="item" :class="[{
             today: date.status ? (today == date.date) : false,
-            event: date.status ? (date.title != undefined) : false,
+            other: date.status ? ((today == date.date) && (date.title)) : false,
+            lab: date.status ? ((today != date.date) && date.title && date.title.includes('Unit')) : false,
+            conversation: date.status ? ((today != date.date) && date.title && !date.title.includes('Unit')) : false,
             [calendar.options.className] : (date.date == selectedDay)
-          }, isToday(date)]" :key="date.date">
+          }, isToday(date)]" :key="date.date"> -->
+      <div v-for="date in dayList" class="item" :class="[
+            !date.status ? 'normal' :
+            ((today == date.date) && (!date.title || (date.title && !date.title.includes('Unit')))) ? 'today' :
+            ((today == date.date) && date.title && date.title.includes('Unit')) ? 'other' :
+            ((today != date.date) && date.title && date.title.includes('Unit')) ? 'lab' :
+            ((today != date.date) && date.title && !date.title.includes('Unit')) ? 'conversation' : 'normal'
+          ]" :key="date.date">
+
         <!-- @click="handleChangeCurday(date)" -->
         <!-- <p class="date-num" :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}"> -->
         <p class="date-num" :style="{color: !date.status ? '#ccc' : 'inherit'}">
           {{date.date.split('/')[2]}}</p>
-        <span v-if="((today == date.date) || (date.title == undefined))" class="is-normal"></span>
-        <span v-if="date.status ? (today == date.date) : false" class="is-today"></span>
-        <span v-if="date.status ? (date.title != undefined) : false" class="is-event"></span>
-        <span v-if="date.status ? (date.classStatus == 'F') : false" class="is-finished"></span>
+        <!-- <span v-if="(today == date.date)" class="is-normal"></span> -->
+        <span v-if="date.status ? (today == date.date) && (!date.title || (date.title && !date.title.includes('Unit'))) : false" class="is-today"></span>
+        <span v-else-if="date.status ? (date.classStatus == 'F') : false" class="is-finished"></span>
+        <span v-else-if="date.status ? (date.title) : false" class="is-event"></span>
+        <span v-else class="is-normal"></span>
       </div>
     </div>
 
@@ -110,7 +121,7 @@ export default {
           status = 0
         }
         tempItem = {
-          date: `${item.getFullYear()}/${item.getMonth()+1}/${item.getDate()}`,
+          date: `${item.getUTCFullYear()}/${(item.getUTCMonth() + 1) > 9 ? (item.getUTCMonth() + 1) : `0${item.getUTCMonth() + 1}` }/${item.getUTCDate() > 9 ? item.getUTCDate() : `0${item.getUTCDate()}`}`,
           status: status,
           customClass: []
         }
@@ -124,11 +135,12 @@ export default {
         })
         tempArr.push(tempItem)
       }
+      console.log(tempArr)
       return tempArr
     },
     today() {
       let date = new Date()
-      return `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()}`
+      return `${date.getUTCFullYear()}/${(date.getUTCMonth() + 1) > 9 ? (date.getUTCMonth() + 1) : `0${date.getUTCMonth() + 1}` }/${date.getUTCDate() > 9 ? date.getUTCDate() : `0${date.getUTCDate()}`}`
     },
     curYearMonth() {
       let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.curMonth+1}/01`))
@@ -156,21 +168,21 @@ export default {
         this.$emit('cur-day-changed', date.date)
       }
     },
-    isToday (data) {
-      if (!data.title) return
-      const index = this.events.findIndex(e => (e.date == data.date) && (e.title == data.title))
-      if ((data.date == this.today) && (index >= 0)) return 'conversation'
-      switch (index % 2) {
-        case 0:
-          return 'lab'
-          break;
-        case 1:
-          return 'other'
-          break;
-        default:
-          return
-      }
-    }
+    // isToday (data) {
+    //   if (!data.title) return
+    //   const index = this.events.findIndex(e => (e.date == data.date) && (e.title == data.title))
+    //   if ((data.date == this.today) && (index >= 0)) return 'conversation'
+    //   switch (index % 2) {
+    //     case 0:
+    //       return 'lab'
+    //       break;
+    //     case 1:
+    //       return 'other'
+    //       break;
+    //     default:
+    //       return
+    //   }
+    // }
   }
 }
 </script>

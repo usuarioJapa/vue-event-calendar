@@ -15,24 +15,33 @@ export default {
       locale: 'pt-br',
       demoEvents: [
         {
-        date: `2018/11/10`,
-        time: '15:00',
-        title: 'Aulas de conversaçōes',
-        desc: 'Today',
-        classStatus: 'F'
-      },
+          date: `2019/01/10`,
+          time: '15:00',
+          title: 'Aulas de conversaçōes',
+          desc: 'Today',
+          classStatus: 'F'
+        },
         {
-        date: `2018/11/20`,
-        time: '15:30',
-        title: 'Aulas de Lab Class',
-        desc: 'Ho ho ho'
-      },
+          date: `2019/01/14`,
+          time: '15:30',
+          title: 'Unit 1',
+          desc: 'Ho ho ho',
+          classStatus: 'A'
+        },
         {
-        date: `2018/11/23`,
-        time: '17:00',
-        title: 'Aulas de Lab Class',
-        desc: 'Ho ho ho'
-      }
+          date: `2019/01/15`,
+          time: '17:00',
+          title: 'Aulas de Lab Class',
+          desc: 'Ho ho ho',
+          classStatus: 'A'
+        },
+        {
+          date: `2019/01/16`,
+          time: '17:00',
+          title: 'Unit 02',
+          desc: 'Ho ho ho',
+          classStatus: 'A'
+        }
     ]
     }
   },

@@ -1,5 +1,10 @@
 <template>
-<div class="wrapper" :class="{ lab : (event.classStatus != 'F') && (index % 2 === 0), other : (event.classStatus != 'F') && (index % 2 === 1), conversation : (event.classStatus != 'F') && (event.date === today), finished: event.classStatus == 'F' }">
+<div class="wrapper"
+     :class="[
+        (event.classStatus == 'F') ? 'finished' :
+        ((event.date == today) && event.title.includes('Unit')) ? 'other' :
+        event.title.includes('Unit') ? 'lab' : 'conversation'
+    ]">
   <div class="time">
     <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
     <p>{{event.time}}</p>
@@ -39,7 +44,7 @@ export default {
   computed: {
     today() {
       let date = new Date()
-      return `${date.getUTCFullYear()}/${date.getUTCMonth() + 1}/${date.getUTCDate()}`
+      return `${date.getUTCFullYear()}/${(date.getUTCMonth() + 1) > 9 ? (date.getUTCMonth() + 1) : `0${date.getUTCMonth() + 1}` }/${date.getUTCDate() > 9 ? date.getUTCDate() : `0${date.getUTCDate()}`}`
     }
   },
   methods: {
