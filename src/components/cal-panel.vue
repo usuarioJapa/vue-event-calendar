@@ -135,7 +135,6 @@ export default {
         })
         tempArr.push(tempItem)
       }
-      console.log(tempArr)
       return tempArr
     },
     today() {
