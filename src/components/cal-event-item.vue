@@ -10,7 +10,7 @@
     <p>{{event.time}}</p>
   </div>
   <div class="title">
-    {{event.title}}
+    {{event.title}} <span>{{ event.date.split('/').reverse().join('/') }}</span>
   </div>
 
 </div>
