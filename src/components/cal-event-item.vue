@@ -7,10 +7,14 @@
     ]">
   <div class="time">
     <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
-    <p>{{event.time}}</p>
+    <p>{{ event.time }}</p>
+  </div>
+  <div class="time">
+    <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
+    <p>{{ event.date.split('/').reverse().join('/') }}</p>
   </div>
   <div class="title">
-    {{event.title}} <span>{{ event.date.split('/').reverse().join('/') }}</span>
+    <p>{{ event.title }}</p>
   </div>
 
 </div>
