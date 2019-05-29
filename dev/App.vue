@@ -41,6 +41,41 @@ export default {
           title: 'Unit 02',
           desc: 'Ho ho ho',
           classStatus: 'A'
+        },
+        {
+          date: `2019/01/18`,
+          time: '17:00',
+          title: 'Unit 02',
+          desc: 'Ho ho ho',
+          classStatus: 'A'
+        },
+        {
+          date: `2019/01/16`,
+          time: '17:00',
+          title: 'Unit 02',
+          desc: 'Ho ho ho',
+          classStatus: 'A'
+        },
+        {
+          date: `2019/01/16`,
+          time: '17:00',
+          title: 'Unit 02',
+          desc: 'Ho ho ho',
+          classStatus: 'A'
+        },
+        {
+          date: `2019/01/16`,
+          time: '17:00',
+          title: 'Unit 02',
+          desc: 'Ho ho ho',
+          classStatus: 'A'
+        },
+        {
+          date: `2019/01/16`,
+          time: '17:00',
+          title: 'Unit 02',
+          desc: 'Ho ho ho',
+          classStatus: 'A'
         }
     ]
     }

@@ -3,16 +3,29 @@
     <div class="cal-events">
 
       <slot>
-        <div v-for="(event, index) in events" class="event-item">
+        <div v-for="(event, index) in [ ...events ].slice(curPage - 1, 6)" class="event-item">
           <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
         </div>
-        <div class="button">
-          <button type="button" name="button" class="btn btn-full">
+        <div class="button container">
+          <button type="button" name="button" class="btn">
             <span>MARCAR NOVA AULA PRESENCIAL</span>
             <svg class="svg-inline--fa fa-arrow-right fa-w-14 margin-left-5" aria-hidden="true" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
             </svg>
           </button>
+          <div class="events-paging" v-if="events.length > 6">
+            <button class="btn" type="button" name="button">Next</button>
+            <p class="events-pages">
+              <span
+                v-for="page in Math.ceil(parseInt(events.length) / 6)"
+                :class="{ current: curPage == page }"
+                @click="curPage = page"
+              >
+                {{ page }}
+              </span>
+            </p>
+            <button class="btn" type="button" name="button">Previous</button>
+          </div>
         </div>
       </slot>
 
@@ -31,7 +44,8 @@
     name: 'cal-events',
     data() {
       return {
-        i18n
+        i18n,
+        curPage: 1
       }
     },
     components: {
@@ -86,3 +100,36 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .button {
+    &.container {
+      display: flex;
+      justify-content: space-between;
+      height: 39px;
+      .events-paging {
+        display: flex;
+        align-self: flex-end;
+        .events-pages {
+          text-align: center;
+          display: flex;
+          span {
+            cursor: pointer;
+            display: flex;
+            border-radius: 25px;
+            background-color: #DDD;
+            margin: 5px 5px;
+            width: 34px;
+            height: 34px;
+            justify-content: center;
+            align-items: center;
+            &.current {
+              background-color: #BBB;
+            }
+          }
+        }
+      }
+    }
+  }
+
+</style>
