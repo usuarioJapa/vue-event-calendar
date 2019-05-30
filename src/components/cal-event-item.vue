@@ -1,26 +1,24 @@
 <template>
 <div class="wrapper"
      :class="[
-        (event.classStatus == 'F') ? 'finished' :
+        (!event || (event.classStatus == 'F')) ? 'finished' :
         ((event.date == today) && event.title.includes('Unit')) ? 'other' :
         event.title.includes('Unit') ? 'lab' : 'conversation'
     ]">
   <div class="time">
     <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
-    <p>{{ event.time }}</p>
+    <p>{{ event ? event.time : '' }}</p>
   </div>
-  <div class="time">
+  <div class="day">
     <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
-    <p>{{ event.date.split('/').reverse().join('/') }}</p>
+    <p>{{ event ? event.date.split('/').reverse().join('/') : '' }}</p>
   </div>
   <div class="title">
-    <p>{{ event.title }}</p>
+    <p>{{ event ? event.title : '' }}</p>
   </div>
 
 </div>
 </template>
-
-
 
 <script>
 import i18n from '../i18n.js'
@@ -56,3 +54,19 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .wrapper {
+    align-items: center;
+  }
+
+  .time, .day, .title {
+    height: 25px;
+  }
+  .time {
+    width: 56px;
+  }
+  .day {
+    width: 87px;
+  }
+</style>

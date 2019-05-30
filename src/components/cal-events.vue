@@ -3,7 +3,7 @@
     <div class="cal-events">
 
       <slot>
-        <div v-for="(event, index) in [ ...events ].slice(curPage - 1, 6)" class="event-item">
+        <div v-for="(event, index) in filteredEvents" class="event-item">
           <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
         </div>
         <div class="button container">
@@ -14,17 +14,21 @@
             </svg>
           </button>
           <div class="events-paging" v-if="events.length > 6">
-            <button class="btn" type="button" name="button">Next</button>
+            <button class="btn" type="button" name="button" @click="prev()" :disabled="curPage == 1">
+              <img :src="require('../assets/img/back-icon.png')"/>
+            </button>
             <p class="events-pages">
               <span
-                v-for="page in Math.ceil(parseInt(events.length) / 6)"
+                v-for="page in pages"
                 :class="{ current: curPage == page }"
                 @click="curPage = page"
               >
                 {{ page }}
               </span>
             </p>
-            <button class="btn" type="button" name="button">Previous</button>
+            <button class="btn" type="button" name="button" @click="next()" :disabled="curPage == pages">
+              <img :src="require('../assets/img/next-icon.png')"/>
+            </button>
           </div>
         </div>
       </slot>
@@ -34,11 +38,9 @@
 </template>
 
 <script>
+  import { cloneDeep } from 'lodash'
   import i18n from '../i18n.js'
-  import {
-    dateTimeFormatter
-  }
-  from '../tools.js'
+  import { dateTimeFormatter } from '../tools.js'
   import calEventItem from './cal-event-item.vue'
   export default {
     name: 'cal-events',
@@ -90,6 +92,33 @@
             backgroundColor: this.color
           }
         },
+        pages () {
+          return Math.ceil(parseInt(this.events.length) / 6)
+        },
+        curIndex () {
+          const page  = this.curPage - 1,
+                quant = 6,
+                index = page * quant
+
+          let position = (page == 0) ? index : (index - 1)
+
+          return position
+        },
+        filteredEvents () {
+          const events = cloneDeep(this.events).slice(this.curIndex, 6)
+
+          while (events.length < 6) {
+            events.push(null)
+          }
+
+          return events
+        },
+        next () {
+          if (this.curPage < this.pages) this.curPage++
+        },
+        prev () {
+          if (this.curPage > 1) this.curPage--
+        }
     },
     methods: {
       dateTimeFormatter,
@@ -97,11 +126,17 @@
       allEvents: function() {
         this.dayEvents.date = 'all'
       }
+    },
+    watch: {
+      filteredEvents (val) {
+        this.$nextTick()
+      }
     }
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
   .button {
     &.container {
       display: flex;
@@ -126,6 +161,21 @@
             &.current {
               background-color: #BBB;
             }
+          }
+        }
+        button {
+          padding: 0;
+          width: 44px;
+          height: 44px;
+          img {
+            margin: 0;
+            padding: 5px;
+            width: 37px;
+            height: 37px;
+          }
+          &:disabled {
+            cursor: not-allowed;
+            background-color: #EEE;
           }
         }
       }

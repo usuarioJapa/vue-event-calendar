@@ -376,31 +376,36 @@ a {
 }
 
 .wrapper.lab .time,
+.wrapper.lab .day,
 .wrapper.lab .title {
   background: #00B4BA !important;
   background: linear-gradient(-206deg, #00B4BA 0%, #00418A 100%) !important;
 }
 
 .wrapper.other .time,
+.wrapper.other .day,
 .wrapper.other .title {
   background: #21A6A6 !important;
   background: linear-gradient(-206deg, #21A6A6 0%, #A2F095 100%) !important;
 }
 
 .wrapper.conversation .time,
+.wrapper.conversation .day,
 .wrapper.conversation .title {
   background: #4E6BFD !important;
   background: linear-gradient(-206deg, #4E6BFD 0%, #9A0EEC 100%) !important;
 }
 
 .wrapper.finished .time,
+.wrapper.finished .day,
 .wrapper.finished .title {
   background: #EEE !important;
   background: linear-gradient(-206deg, #EEE 0%, #CCC 100%) !important;
   color: #AAA;
 }
 
-.wrapper .time {
+.wrapper .time,
+.wrapper .day {
   margin-right: 5px;
   color: #fff;
   font-weight: 700;
@@ -410,7 +415,8 @@ a {
   padding: 5px 15px;
 }
 
-.wrapper .time p {
+.wrapper .time p,
+.wrapper .day p {
   font-weight: bold;
 }
 
