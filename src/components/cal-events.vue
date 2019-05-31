@@ -7,16 +7,16 @@
           <cal-event-item :event="event" :index="index" :locale="locale"></cal-event-item>
         </div>
         <div class="button container">
-          <button type="button" name="button" class="btn">
+          <!-- <button type="button" name="button" class="btn">
             <span>MARCAR NOVA AULA PRESENCIAL</span>
             <svg class="svg-inline--fa fa-arrow-right fa-w-14 margin-left-5" aria-hidden="true" data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path>
             </svg>
-          </button>
+          </button> -->
           <div class="events-paging" v-if="events.length > 6">
-            <button class="btn" type="button" name="button" @click="prev()" :disabled="curPage == 1">
+            <!-- <button class="btn" type="button" name="button" @click="prev()" :disabled="curPage == 1">
               <img :src="require('../assets/img/back-icon.png')"/>
-            </button>
+            </button> -->
             <p class="events-pages">
               <span
                 v-for="page in pages"
@@ -26,9 +26,9 @@
                 {{ page }}
               </span>
             </p>
-            <button class="btn" type="button" name="button" @click="next()" :disabled="curPage == pages">
+            <!-- <button class="btn" type="button" name="button" @click="next()" :disabled="curPage == pages">
               <img :src="require('../assets/img/next-icon.png')"/>
-            </button>
+            </button> -->
           </div>
         </div>
       </slot>
@@ -100,12 +100,10 @@
                 quant = 6,
                 index = page * quant
 
-          let position = (page == 0) ? index : (index - 1)
-
-          return position
+          return index
         },
         filteredEvents () {
-          const events = cloneDeep(this.events).slice(this.curIndex, 6)
+          const events = cloneDeep(this.events).slice(this.curIndex, this.curIndex + 6)
 
           while (events.length < 6) {
             events.push(null)
@@ -140,7 +138,8 @@
   .button {
     &.container {
       display: flex;
-      justify-content: space-between;
+      // justify-content: space-between;
+      justify-content: center;
       height: 39px;
       .events-paging {
         display: flex;
