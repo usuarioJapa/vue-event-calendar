@@ -20,13 +20,13 @@
       </span> -->
 
       <!-- tomara que nao bug -->
+      <span class="item">D</span>
       <span class="item">S</span>
       <span class="item">T</span>
       <span class="item">Q</span>
       <span class="item">Q</span>
       <span class="item">S</span>
       <span class="item">S</span>
-      <span class="item">D</span>
 
     </div>
 
