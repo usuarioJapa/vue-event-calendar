@@ -11,7 +11,7 @@
   </div>
   <div class="day">
     <!-- <p>{{dateTimeFormatter(Date.parse(new Date(event.date)),i18n[locale].fullFormat)}}</p> -->
-    <p>{{ event ? event.date.split('/').reverse().join('/') : '' }}</p>
+    <p>{{ event ? event.date : '' }}</p>
   </div>
   <div class="title">
     <p>{{ event ? event.title : '' }}</p>
