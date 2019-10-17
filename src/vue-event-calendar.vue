@@ -53,19 +53,21 @@ export default {
     calendarOptions() {
       let dateObj = new Date()
       if (inBrowser) {
+        window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA.options.weekStartOn = 0
         return window.VueCalendarBarEventBus.CALENDAR_EVENTS_DATA
-      } else {
-        return {
-          options: {
-            locale: 'pt-br',
-            color: ' #ff4455'
-          },
-          params: {
-            curYear: dateObj.getFullYear(),
-            curMonth: dateObj.getMonth(),
-            curDate: dateObj.getDate(),
-            curEventsDate: 'all'
-          }
+      }
+      
+      return {
+        options: {
+          locale: 'pt-br',
+          color: ' #ff4455',
+          weekStartOn: 0
+        },
+        params: {
+          curYear: dateObj.getFullYear(),
+          curMonth: dateObj.getMonth(),
+          curDate: dateObj.getDate(),
+          curEventsDate: 'all'
         }
       }
     },
